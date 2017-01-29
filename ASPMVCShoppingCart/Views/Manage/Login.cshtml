@@ -1,0 +1,39 @@
+﻿@model ASPMVCShoppingCart.Models.mLogin 
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Login";
+}
+
+@*Heading*@
+<h2 class="wow pulse">Login</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+
+        <fieldset style="width:40%" class="wow slideInLeft">
+
+        <div class="editor-label" style="padding-bottom:15px;">
+            @Html.LabelFor(model => model.User)
+        </div>
+
+        <input class="form-control" type="text" name="User" id="User" placeholder="Enter Make Here">
+        @Html.ValidationMessageFor(model => model.User)
+
+        <div class="editor-label" style="padding-bottom:15px; padding-top:15px;">
+            @Html.LabelFor(model => model.Password)
+        </div>
+
+        <input class="form-control" type="text" name="Password" id="Password" placeholder="Enter Price Here">
+        @Html.ValidationMessageFor(model => model.Password)
+
+        <p style="padding-top:20px;">
+            <input type="submit" class="btn btn-default" value="Login" />
+        </p>
+        </fieldset>
+    }
+@*Validation scripts references*@
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<link href="~/Content/themes/base/jquery.ui.theme.css" rel="stylesheet" />
