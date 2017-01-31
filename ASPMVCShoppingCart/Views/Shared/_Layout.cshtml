@@ -35,7 +35,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        @Html.ActionLink("Administrador", ASPMVCShoppingCart.Models.mLogin.IsLogged() ? "Create" : "Login", "Manage")
+                        @Html.ActionLink("Administrador", ASPMVCShoppingCart.Models.mLogin.IsLogged() ? "Index" : "Login", "Manage")
                     </li>
                     <li>
                         @Html.ActionLink("Carrinho", "Cart", "ShoppingCart")

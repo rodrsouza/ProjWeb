@@ -1,7 +1,7 @@
 ﻿@model ASPMVCShoppingCart.Models.tblProduct
 @{Layout = "~/Views/Shared/_Layout.cshtml";} @*Use custom layout*@
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar";
 }
 
 @*Heading*@
@@ -12,12 +12,12 @@
     @Html.ValidationSummary(true)
 
     <fieldset style="width:40%" class="wow slideInLeft">
-        <legend>Description</legend>
+        <legend>Descrição</legend>
 
         @Html.HiddenFor(model => model.Id)
 
         <div class="editor-label" style="padding-bottom:15px;">
-            @Html.LabelFor(model => model.Name)
+            @Html.Label("Nome")
         </div>
         <div class="editor-field">
             @Html.TextBoxFor(model => model.Name, new { @class = "form-control" } )
@@ -27,7 +27,7 @@
         </div>
 
         <div class="editor-label" style="padding-bottom:15px;  padding-top:15px;">
-            @Html.LabelFor(model => model.Price)
+            @Html.Label("Preço")
         </div>
         <div class="editor-field">
             @Html.TextBoxFor(model => model.Price, new { @class = "form-control" } )
@@ -35,13 +35,13 @@
         </div>
 
         <p style="padding-top:20px;">
-            <input type="submit" value="Save" class="btn btn-default" />
+            <input type="submit" value="Salvar" class="btn btn-default" />
         </p>
     </fieldset>
 }
 
 <div style="padding-top:15px;">
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Voltar para a Administração", "Index")
 </div>
 
 @*Validation scripts references*@

@@ -25,9 +25,9 @@
     {
         <tr>
             <td>@p.Name</td>
-            <td>£ @Math.Round(p.Price,2)</td>
+            <td>R$ @p.Price.ToString("n2")</td>
             <td>
-                @Html.ActionLink("Order Now", "OrderNow", "ShoppingCart", new { id = p.Id }, new { @class = "btn btn-default" })
+                @Html.ActionLink("Comprar", "OrderNow", "ShoppingCart", new { id = p.Id }, new { @class = "btn btn-default" })
             </td>
         </tr>
     }

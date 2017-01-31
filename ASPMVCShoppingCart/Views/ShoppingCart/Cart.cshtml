@@ -23,25 +23,25 @@
         @{
             decimal s = 0; // To Store total 
         }
-        @*
+        
         @foreach (Item item in (List<Item>)Session["cart"]) // Display each item from cart
         {
 
             s = s + item.Product.Price * item.Quantity; // Get the Sum of all products
 
              <tr>
-                @*ActionLink to remove products based on their id
-                <td>@Html.ActionLink("Remove", "Delete", "ShoppingCart", new { id = item.Product.Id }, new { @class = "btn btn-danger" })</td>
+                @*ActionLink to remove products based on their id*@
+                <td>@Html.ActionLink("Remover", "Delete", "ShoppingCart", new { id = item.Product.Id }, new { @class = "btn btn-danger" })</td>
                 <td>@item.Product.Id</td>
                 <td>@item.Product.Name</td>
-                <td>£ @Math.Round(item.Product.Price,2)</td>
+                <td>R$ @item.Product.Price.ToString("n2")</td>
                 <td>@item.Quantity</td>
-                <td>£ @Math.Round((item.Product.Price * item.Quantity),2)</td>
+                <td>R$ @((item.Product.Price * item.Quantity).ToString("n2"))</td>
             </tr>
-        }*@
+        }
         <tr>
             <td align="right" colspan="5"><strong>Total:</strong></td>
-            <td>£ @Math.Round(s,2)</td>
+            <td>R$ @s.ToString("n2")</td>
         </tr>
     </table>
 

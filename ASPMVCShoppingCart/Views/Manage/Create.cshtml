@@ -13,20 +13,22 @@
     <fieldset style="width:40%" class="wow slideInLeft">
         
         <div class="editor-label" style="padding-bottom:15px;">
-            @Html.LabelFor(model => model.Name)
+            @Html.Label("Nome")
         </div>
  
-            <input class="form-control" type="text" name="Name" id="Name" placeholder="Enter Make Here">
+            <input class="form-control" type="text" name="Name" id="Name">
             @Html.ValidationMessageFor(model => model.Name)
         
         <div class="editor-label" style="padding-bottom:15px; padding-top:15px;">
-            @Html.LabelFor(model => model.Price)   
+            @Html.Label("Preço")   
         </div>
 
         
-            <input class="form-control" type="number" name="Price" id="Price" placeholder="Enter Price Here">
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Price)
-        
+        </div>
+
 
         <p style="padding-top:20px;">
             <input type="submit" class="btn btn-default" value="Adicionar" />

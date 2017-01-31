@@ -33,7 +33,7 @@ namespace ASPMVCShoppingCart.Controllers
                    login.Password.Equals("admin"))
                 {
                     login.setLoginOk();
-                    return RedirectToAction("Create");
+                    return RedirectToAction("Index");
                 }
             }
 
@@ -45,7 +45,14 @@ namespace ASPMVCShoppingCart.Controllers
 
         public ActionResult Index(int? page)
         {
-            return View(daoAccess.getInstance().getList().ToPagedList(page ?? 1, 15));
+            if (ASPMVCShoppingCart.Models.mLogin.IsLogged())
+            {
+                return View(daoAccess.getInstance().getList().ToPagedList(page ?? 1, 15));
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
         }
 
         //
@@ -84,7 +91,7 @@ namespace ASPMVCShoppingCart.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            tblProduct tblproduct = db.tblProducts.Find(id);
+            tblProduct tblproduct = daoAccess.getInstance().Find(id);
             if (tblproduct == null)
             {
                 return HttpNotFound();
@@ -101,8 +108,7 @@ namespace ASPMVCShoppingCart.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(tblproduct).State = EntityState.Modified;
-                db.SaveChanges();
+                daoAccess.getInstance().Edit(tblproduct);
                 return RedirectToAction("Index");
             }
             return View(tblproduct);
@@ -113,7 +119,7 @@ namespace ASPMVCShoppingCart.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            tblProduct tblproduct = db.tblProducts.Find(id);
+            tblProduct tblproduct = daoAccess.getInstance().Find(id);
             if (tblproduct == null)
             {
                 return HttpNotFound();
@@ -128,9 +134,8 @@ namespace ASPMVCShoppingCart.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            tblProduct tblproduct = db.tblProducts.Find(id);
-            db.tblProducts.Remove(tblproduct);
-            db.SaveChanges();
+            tblProduct tblproduct = daoAccess.getInstance().Find(id);
+            daoAccess.getInstance().Remove(tblproduct);
             return RedirectToAction("Index");
         }
 

@@ -1,22 +1,22 @@
 ﻿@model ASPMVCShoppingCart.Models.tblProduct
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Apagar";
 }
 
 @*Heading*@
-<h2 class="wow slideInLeft">Are you sure you want to delete this?</h2>
+<h2 class="wow slideInLeft">Você tem certeza que quer apagar esse produto?</h2>
 
 <fieldset class="wow slideInLeft">
-    <legend>Product</legend>
+    <legend>Produto</legend>
 
 
     <div class="display-field">
-        <strong>Make:</strong> @Html.DisplayFor(model => model.Name)
+        <strong>Nome:</strong> @Html.DisplayFor(model => model.Name)
     </div>
 
     <div class="display-field">
-        <strong>Price:</strong>  £  @Html.DisplayFor(model => model.Price)
+        <strong>Preço:</strong>  R$  @Html.DisplayFor(model => model.Price)
     </div>
 
 
@@ -25,7 +25,7 @@
         @Html.AntiForgeryToken()
         <p style="padding-top:15px;">
             <input class="btn btn-danger" type="submit" value="Delete" />
-            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Voltar para a Administração", "Index", null, new { @class = "btn btn-default" })
         </p>
     }
 </fieldset>

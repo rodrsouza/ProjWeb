@@ -16,17 +16,17 @@
         <fieldset style="width:40%" class="wow slideInLeft">
 
         <div class="editor-label" style="padding-bottom:15px;">
-            @Html.LabelFor(model => model.User)
+            @Html.Label("Usuário")
         </div>
 
-        <input class="form-control" type="text" name="User" id="User" placeholder="Enter Make Here">
+        <input class="form-control" type="text" name="User" id="User" placeholder="Entre com o usuário">
         @Html.ValidationMessageFor(model => model.User)
 
         <div class="editor-label" style="padding-bottom:15px; padding-top:15px;">
-            @Html.LabelFor(model => model.Password)
+            @Html.Label("Senha")
         </div>
 
-        <input class="form-control" type="text" name="Password" id="Password" placeholder="Enter Price Here">
+        <input class="form-control" type="text" name="Password" id="Password" placeholder="Entre com a senha">
         @Html.ValidationMessageFor(model => model.Password)
 
         <p style="padding-top:20px;">

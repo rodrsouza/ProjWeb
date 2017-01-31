@@ -7,7 +7,7 @@
 }
 
 @*Heading*@
-<h2 class="wow pulse">Manage Products</h2>
+<h2 class="wow pulse">Administrador</h2>
 
 <p class="wow slideInLeft">
     @Html.ActionLink("Adicionar", "Create")
@@ -17,12 +17,12 @@
 <table class="table table-striped table-hover wow slideInLeft" style=" width:40%;">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.First().Name)
+            @Html.DisplayName("Nome")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().Price)
+            @Html.DisplayName("Preço")
         </th>
-        <th>Actions</th>
+        <th>Ações</th>
     </tr>
 
     @foreach (var item in Model)
@@ -32,11 +32,11 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                £ @Html.DisplayFor(modelItem => item.Price) 
+                R$ @Html.DisplayFor(modelItem => item.Price) 
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-default" }) 
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-default" }) 
+                @Html.ActionLink("Apagar", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
             </td>
         </tr>
     }
