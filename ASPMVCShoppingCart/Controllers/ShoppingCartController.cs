@@ -56,7 +56,7 @@ namespace ASPMVCShoppingCart.Controllers
             {
                 List<Item> cart = new List<Item>();
 
-                cart.Add(new Item(de.tblProducts.Find(id), 1)); // Add 1 Product based on id provided
+                cart.Add(new Item(daoAccess.getInstance().Find(id), 1)); // Add 1 Product based on id provided
 
                 Session["cart"] = cart; // Update Session["cart"]
             }
@@ -68,7 +68,7 @@ namespace ASPMVCShoppingCart.Controllers
 
                 if (index == -1) // If the product to be order is not already in the cart
 
-                    cart.Add(new Item(de.tblProducts.Find(id), 1)); // Add 1 Product based on id provided
+                    cart.Add(new Item(daoAccess.getInstance().Find(id), 1)); // Add 1 Product based on id provided
 
                 else // if product already exists in the cart
 

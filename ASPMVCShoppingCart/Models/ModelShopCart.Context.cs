@@ -12,29 +12,30 @@
 
 namespace ASPMVCShoppingCart.Models
 {
+    using System;
+    using System.Data.OleDb;
+    using System.Configuration;
+    using System.Data;
 
-using System;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-
-
-public partial class DemoDBEntities : DbContext
-{
-    public DemoDBEntities()
-        : base("name=DemoDBEntities")
+    using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
+    public partial class DemoDBEntities : DbContext
     {
+        public DemoDBEntities()
+            : base("name=DemoDBEntities")
+        {
+
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            throw new UnintentionalCodeFirstException();
+        }
+
+
+        public DbSet<tblProduct> tblProducts { get; set; }
 
     }
-
-    protected override void OnModelCreating(DbModelBuilder modelBuilder)
-    {
-        throw new UnintentionalCodeFirstException();
-    }
-
-
-    public DbSet<tblProduct> tblProducts { get; set; }
-
-}
 
 }
 

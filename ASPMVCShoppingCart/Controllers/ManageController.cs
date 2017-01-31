@@ -33,7 +33,7 @@ namespace ASPMVCShoppingCart.Controllers
                    login.Password.Equals("admin"))
                 {
                     login.setLoginOk();
-                    return View("Create");
+                    return RedirectToAction("Create");
                 }
             }
 
@@ -45,7 +45,7 @@ namespace ASPMVCShoppingCart.Controllers
 
         public ActionResult Index(int? page)
         {
-            return View(db.tblProducts.ToList().ToPagedList(page ?? 1,15));
+            return View(daoAccess.getInstance().getList().ToPagedList(page ?? 1, 15));
         }
 
         //
@@ -72,8 +72,7 @@ namespace ASPMVCShoppingCart.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.tblProducts.Add(tblproduct);
-                db.SaveChanges();
+                daoAccess.getInstance().createData(tblproduct);
                 return RedirectToAction("Index");
             }
 

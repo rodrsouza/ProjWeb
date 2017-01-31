@@ -146,6 +146,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\accessDao.cs" />
     <Compile Include="Models\ModelLogin.cs" />
     <Compile Include="Models\ModelShopCart.Context.cs">
       <AutoGen>True</AutoGen>
