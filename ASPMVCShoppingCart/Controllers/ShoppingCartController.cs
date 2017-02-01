@@ -7,13 +7,17 @@ namespace ASPMVCShoppingCart.Controllers
     public class ShoppingCartController : Controller
     {
 
-        private DemoDBEntities de = new DemoDBEntities(); // Accessing relative path from connection string.
-
         //
         // GET: /ShoppingCart/Cart
 
         public ActionResult Cart()
         {
+            if (Session["cart"] == null)
+            {
+                List<Item> cart = new List<Item>();
+
+                Session["cart"] = cart; // Update Session["cart"]
+            }
             return View();
         }
 
